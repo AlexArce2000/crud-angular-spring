@@ -6,7 +6,7 @@ export const routes: Routes = [
     {
         path:'',
         component:HomeComponent,
-        title:'Pagina de inicio'
+        title:'Inicio'
     },
     {
         path:'book-form/:id',

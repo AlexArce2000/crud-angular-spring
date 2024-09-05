@@ -1,40 +1,44 @@
-<div class="flex flex-column gap-2">
-    <a routerLink="book-form/new" class="p-button font-bold w-max"> Crear Nuevo Libro </a>
+<div class="flex flex-column gap-4 p-4 bg-gray-100 rounded-lg shadow-md">
+  <a routerLink="book-form/new" class="p-button font-bold w-max bg-blue-500 text-white hover:bg-blue-600 rounded-md">
+      Crear Nuevo Libro
+  </a>
 
-<div class="flex gap-4 flex-wrap">
-    @for (book of books; track book.id) {
-        <p-card
-          header="{{ book.title }}"
-          subheader="{{ book.author }}"
-          [style]="{ width: '340px' }"
-        >
-          <ng-template pTemplate="header">
-            <img
-              alt="Card"
-              src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
-            />
-          </ng-template>
-          <p>
-            Páginas: {{ book.pages }}
-          </p>
-          <p>
-            Precio: {{ book.price }}
-          </p>
-          <ng-template pTemplate="footer">
-            <div class="flex gap-2 mt-1">
-              <p-button (onClick)="deleteBook(book.id)"
-                label="Borrar"
-                severity="secondary"
-              />
-              <a routerLink="book-form/{{ book.id }}" class="p-button font-bold">
-                Editar
-              </a>
-            </div>
-          </ng-template>
-        </p-card>
-        }@empty {
-        <p>No existen libros</p>
-        }
-</div>
-    
+  <div class="flex gap-6 flex-wrap justify-center">
+      @for (book of books; track book.id) {
+          <p-card
+              header="{{ book.title }}"
+              subheader="{{ book.author }}"
+              [style]="{ width: '250px' }"
+              class="border border-gray-300 rounded-lg shadow-xl bg-white"
+          >
+              <!--ng-template pTemplate="header">
+                  <img
+                      alt="Book Cover"
+                      src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
+                      class="w-full h-40 object-cover rounded-t-lg transition-transform duration-300 hover:scale-105"
+                  />
+              </ng-template-->
+                  <p class="text-gray text-lg font-semibold">
+                      Páginas: {{ book.pages }}
+                  </p>
+                  <p class="text-gray text-lg font-semibold">
+                      Precio: {{ book.price }}
+                  </p>
+              <ng-template pTemplate="footer">
+                  <div class="flex gap-3 mt-4">
+                      <p-button (onClick)="deleteBook(book.id)"
+                          label="Borrar"
+                          severity="danger"
+                          class="p-button-rounded p-button-outlined text-red-600 hover:bg-red-100 transition"
+                      />
+                      <a routerLink="book-form/{{ book.id }}" class="p-button font-bold bg-indigo-600 text-white hover:bg-indigo-700 transition rounded-lg py-2 px-4">
+                          Editar
+                      </a>
+                  </div>
+              </ng-template>
+          </p-card>
+      }@empty {
+          <p class="text-gray-600 text-xl font-medium">No existen libros</p>
+      }
+  </div>
 </div>
