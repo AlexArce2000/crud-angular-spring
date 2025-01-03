@@ -1,0 +1,42 @@
+services:
+  backend:
+    image: backend
+    container_name: backend
+    build:
+      context: ./backend-crud
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/crud
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=fpuna
+    depends_on:
+      - db
+
+  frontend:
+    image: frontend
+    container_name: frontend
+    build:
+      context: ./frontend-crud
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80" 
+    depends_on:
+        - backend
+    links: 
+        - backend
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: crud
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: fpuna
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -63,7 +63,7 @@ Aplicación web que implementa las operaciones básicas de un CRUD (Crear, Leer,
     ```
     ./mvnw "spring-boot:run"
     ```
-   El backend estará disponible en `http://localhost:8080`.
+   El backend estará disponible en `http://localhost:8080/book`.
 
    El swagger disponible en `http://localhost:8080/swagger-ui/index.html`
 
