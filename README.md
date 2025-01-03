@@ -1,4 +1,5 @@
 # crud-angular-spring
+[![bookbase1.png](https://i.postimg.cc/3xhztHjb/bookbase1.png)](https://postimg.cc/N5NN0Sz1)
 ## Descripción
 
 Aplicación web que implementa las operaciones básicas de un CRUD (Crear, Leer, Actualizar, Eliminar) utilizando Angular para el frontend y Spring Boot para el backend. Este proyecto demuestra la integración entre un cliente Angular y un servidor Spring Boot para manejar datos de manera efectiva.
